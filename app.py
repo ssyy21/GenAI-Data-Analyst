@@ -1,17 +1,19 @@
 import os
 import streamlit as st
 import pandas as pd
+import openai
 
-from openai import OpenAI
+
 
 OPENROUTER_API_KEY = st.secrets["OPENROUTER_API_KEY"]
 MODEL = "meta-llama/llama-3-8b-instruct"
 
-# Set up OpenAI client for OpenRouter
-client = OpenAI(
-    base_url="https://openrouter.ai/api/v1",
-    api_key=OPENROUTER_API_KEY,
-)
+openai.api_base = "https://openrouter.ai/api/v1"
+openai.api_key = OPENROUTER_API_KEY
+openai.default_headers = {
+    "HTTP-Referer": "https://ssyy21-genai-data-analyst.streamlit.app",  # your app URL
+    "X-Title": "GenAI Data Analyst"
+}
 
 
 st.title("📊 GenAI Data Analyst")

@@ -6,7 +6,7 @@ import openai
 st.set_page_config(
     page_title="GenAI Data Analyst",
     page_icon="📊",
-    layout="wide"
+   
 )
 
 OPENROUTER_API_KEY = st.secrets["OPENROUTER_API_KEY"]

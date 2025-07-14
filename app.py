@@ -1,11 +1,9 @@
 import os
 import streamlit as st
 import pandas as pd
-from dotenv import load_dotenv
+
 from openai import OpenAI
 
-# Load environment variables
-load_dotenv()
 OPENROUTER_API_KEY = st.secrets["OPENROUTER_API_KEY"]
 MODEL = "meta-llama/llama-3-8b-instruct"
 

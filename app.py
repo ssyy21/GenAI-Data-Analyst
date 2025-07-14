@@ -47,20 +47,20 @@ Question: {user_input}
 """
 
     try:
-        response = client.chat.completions.create(
+        response = openai.ChatCompletion.create(
             model=MODEL,
             messages=[{"role": "user", "content": prompt}],
-            extra_headers={
-                "HTTP-Referer": "https://your-app-name.streamlit.app",  # Optional
-                "X-Title": "GenAI Data Analyst"
-            }
+            temperature=0.7,
+            max_tokens=512,
+            top_p=1.0
         )
-        answer = response.choices[0].message.content
+        answer = response.choices[0].message["content"]
         st.success("✅ Answer:")
         st.write(answer)
 
     except Exception as e:
-        st.error(f"❌ Error: {str(e)}")
+        st.error(f"❌ API Error: {str(e)}")
+
 
 elif user_input and df is None:
     st.warning("⚠️ Please upload a CSV file before asking questions.")

@@ -2,7 +2,7 @@ streamlit
 pandas
 matplotlib
 seaborn
-openai
+openai==0.28.1
 requests
 fastapi
 uvicorn
